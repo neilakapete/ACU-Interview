@@ -14,7 +14,7 @@ if [ -z "$APP_KEY" ] || [ "$APP_KEY" = "base64:" ]; then
 fi
 
 # Run migrations and seed
-php artisan migrate --force
+php artisan migrate:fresh --force
 php artisan db:seed --force
 
 # Fix storage permissions
