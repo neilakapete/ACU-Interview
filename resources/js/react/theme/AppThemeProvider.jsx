@@ -1,5 +1,5 @@
 import CssBaseline from "@mui/material/CssBaseline";
-import { ThemeProvider, createTheme } from "@mui/material/styles";
+import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { useEffect, useState } from "react";
 
 import { ColorModeContext } from "./ColorModeContext";
@@ -12,9 +12,7 @@ function getInitialMode() {
         // ignore
     }
     if (typeof window !== "undefined" && window.matchMedia) {
-        return window.matchMedia("(prefers-color-scheme: dark)").matches
-            ? "dark"
-            : "light";
+        return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
     }
     return "light";
 }
@@ -30,8 +28,7 @@ export default function AppThemeProvider({ children }) {
         }
     }, [mode]);
 
-    const toggleColorMode = () =>
-        setMode((prev) => (prev === "light" ? "dark" : "light"));
+    const toggleColorMode = () => setMode((prev) => (prev === "light" ? "dark" : "light"));
 
     const theme = createTheme({
         palette: {

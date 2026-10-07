@@ -70,36 +70,20 @@ export default function Tasks() {
                         {tasks.map((task) => (
                             <TableRow key={task.id} hover>
                                 <TableCell>{task.title}</TableCell>
-                                <TableCell sx={{ color: "text.secondary" }}>
-                                    {task.description ?? "—"}
-                                </TableCell>
+                                <TableCell sx={{ color: "text.secondary" }}>{task.description ?? "—"}</TableCell>
                                 <TableCell>
                                     <Chip
-                                        label={
-                                            STATUS_LABELS[task.status] ??
-                                            task.status
-                                        }
-                                        color={
-                                            STATUS_COLORS[task.status] ??
-                                            "default"
-                                        }
+                                        label={STATUS_LABELS[task.status] ?? task.status}
+                                        color={STATUS_COLORS[task.status] ?? "default"}
                                         size="small"
                                     />
                                 </TableCell>
-                                <TableCell>
-                                    {new Date(
-                                        task.created_at,
-                                    ).toLocaleDateString()}
-                                </TableCell>
+                                <TableCell>{new Date(task.created_at).toLocaleDateString()}</TableCell>
                             </TableRow>
                         ))}
                         {tasks.length === 0 && (
                             <TableRow>
-                                <TableCell
-                                    colSpan={4}
-                                    align="center"
-                                    sx={{ color: "text.secondary", py: 4 }}
-                                >
+                                <TableCell colSpan={4} align="center" sx={{ color: "text.secondary", py: 4 }}>
                                     No tasks yet.
                                 </TableCell>
                             </TableRow>

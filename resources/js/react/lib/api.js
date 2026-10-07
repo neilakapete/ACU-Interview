@@ -34,4 +34,14 @@ export const api = {
     createTask: (data) => request("POST", "/tasks", data),
     updateTask: (id, data) => request("PATCH", `/tasks/${id}`, data),
     deleteTask: (id) => request("DELETE", `/tasks/${id}`),
+
+    // Members
+    getMembers: () => request("GET", "/members"),
+    createMember: (data) => request("POST", "/members", data),
+
+    // Onboarding Steps
+    getOnboardingSteps: () => request("GET", "/onboarding-steps"),
+
+    // Member Onboarding Steps
+    updateMemberOnboardingStep: (id, data) => request("PATCH", `/member-onboarding-steps/${id}`, data),
 };
